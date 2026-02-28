@@ -14,3 +14,10 @@ Raw sequencing data are available at GEO: GSE189070.
 ## Reproducibility
 All analyses were performed using previously published open-access tools.
 Minimal custom code was used.
+
+## Analysis workflow
+1. Run 01_Hemi SCI QC analysis.R
+2. Run 02_celltype analysis.R
+3. Run 03_astrocyte analysis Fig5.R
+4. Run astrocyte analysis cluster 5.R
+5. Run astrocyte analysis cluster 6, 7, 11.R
