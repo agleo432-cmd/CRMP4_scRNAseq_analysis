@@ -889,31 +889,3 @@ write.csv(as.data.frame(kegg_up),
 
 write.csv(as.data.frame(kegg_down),
           "KEGG_Cluster11_Dpysl3_neg.csv")
-
-
-# cell cycle phase marker sets
-s.genes <- c("Mcm5", "Tyms", "Mcm2", "Mcm4", "Rrm1", "Gins2",
-             "Mcm6", "Cdca7", "Dtl", "Prim1", "Uhrf1", "Hells",
-             "Nasp", "Rad51ap1", "Gmnn", "Slbp", "Ccne2",
-             "Atad2", "Rad51", "Rrm2", "Cdc45", "Cdc6", "Exo1", "Tipin",
-             "Clspn")
-
-g2m.genes <- c("Hmgb2", "Cdk1", "Nusap1", "Ube2c", "Birc5", "Tpx2", "Top2a", "Ndc80",
-               "Cks2", "Nuf2", "Cks1b", "Mki67", "Tmpo", "Cenpf", "Tacc3", "Fam64a",
-               "Smc4", "Ccnb2", "Ckap2l", "Ckap2", "Aurkb", "Kif11",
-               "Tubb4b", "Kif20b", "Cdca3", "Cdc20", "Dlgap5", "Cdca2", "Cdca8", "Ect2", "Kif23",
-               "Hmmr", "Aurka", "Anln", "Cenpe", "Cenpa")
-
-#cell cycle phase scoring
-astro_merged <- CellCycleScoring(astro_merged, s.features = s.genes, g2m.features = g2m.genes, set.ident = TRUE)
-
-p1 <- DimPlot(astro_merged, group.by = "Phase", label = FALSE) +
-  ggtitle("Cell Cycle Phase") +
-  theme(
-    plot.title = element_text(hjust = 0.5),
-    axis.title = element_text(size = 16),
-    axis.text  = element_text(size = 14),
-    legend.text  = element_text(size = 14)
-  )
-
-p1
